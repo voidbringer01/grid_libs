@@ -1,4 +1,4 @@
-import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -12,7 +12,7 @@ import { App } from './app';
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [provideBrowserGlobalErrorListeners()],
+  providers: [],
   bootstrap: [App]
 })
 export class AppModule { }
