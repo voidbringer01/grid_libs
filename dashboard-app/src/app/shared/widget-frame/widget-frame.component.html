@@ -1,0 +1,14 @@
+<div class="widget-frame" [class.edit-mode]="editMode">
+  <div class="widget-header">
+    <span class="drag-handle" *ngIf="editMode">
+      <mat-icon>drag_indicator</mat-icon>
+    </span>
+    <span class="widget-title">{{ title }}</span>
+    <button class="remove-btn" *ngIf="editMode" (click)="onRemove()" mat-icon-button color="warn">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="widget-content">
+    <ng-content></ng-content>
+  </div>
+</div>

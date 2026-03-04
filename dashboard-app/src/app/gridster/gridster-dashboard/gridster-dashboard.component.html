@@ -1,0 +1,54 @@
+<div class="dashboard-page">
+  <mat-toolbar color="primary">
+    <a mat-icon-button routerLink="/">
+      <mat-icon>arrow_back</mat-icon>
+    </a>
+    <mat-icon>view_module</mat-icon>
+    <span class="toolbar-title">angular-gridster2 Dashboard</span>
+    <span class="spacer"></span>
+    <button mat-stroked-button (click)="saveLayout()">
+      <mat-icon>save</mat-icon> Save
+    </button>
+    <button mat-raised-button [color]="editMode ? 'warn' : 'accent'" (click)="toggleEditMode()" style="margin-left:8px">
+      <mat-icon>{{ editMode ? 'lock' : 'edit' }}</mat-icon>
+      {{ editMode ? 'View Mode' : 'Edit Mode' }}
+    </button>
+  </mat-toolbar>
+
+  <div class="dashboard-layout">
+    <div class="grid-area">
+      <gridster [options]="options">
+        <gridster-item
+          *ngFor="let w of widgets; trackBy: trackByInstanceId"
+          [item]="w.gridsterItem"
+        >
+          <app-widget-frame
+            [title]="w.title"
+            [editMode]="editMode"
+            [instanceId]="w.instanceId"
+            (removed)="removeWidget($event)"
+          >
+            <app-stats-widget *ngIf="w.typeId === 'stats'"></app-stats-widget>
+            <app-chart-widget *ngIf="w.typeId === 'chart'"></app-chart-widget>
+            <app-table-widget *ngIf="w.typeId === 'table'"></app-table-widget>
+            <app-text-widget *ngIf="w.typeId === 'text'"></app-text-widget>
+          </app-widget-frame>
+        </gridster-item>
+      </gridster>
+    </div>
+
+    <div class="gallery-panel" *ngIf="editMode">
+      <h3 class="gallery-title">Widget Gallery</h3>
+      <div class="gallery-items">
+        <div class="gallery-item" *ngFor="let type of widgetTypes" (click)="addWidget(type)">
+          <mat-icon>{{ type.icon }}</mat-icon>
+          <div class="gallery-item-info">
+            <div class="gallery-item-name">{{ type.displayName }}</div>
+            <div class="gallery-item-desc">{{ type.description }}</div>
+          </div>
+          <mat-icon class="add-icon">add_circle</mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
