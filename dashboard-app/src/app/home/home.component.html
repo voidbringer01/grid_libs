@@ -1,0 +1,73 @@
+<div class="home-container">
+  <mat-toolbar color="primary">
+    <mat-icon>dashboard</mat-icon>
+    <span class="toolbar-title">Angular Drag-and-Drop Dashboard Prototype</span>
+  </mat-toolbar>
+
+  <div class="hero">
+    <h1>Dashboard Libraries Comparison</h1>
+    <p>Explore two popular Angular drag-and-drop grid libraries side by side</p>
+  </div>
+
+  <div class="cards-container">
+    <mat-card class="lib-card">
+      <mat-card-header>
+        <mat-card-title>Gridstack.js</mat-card-title>
+        <mat-card-subtitle>v12.4.2</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>A powerful grid layout library that manipulates the DOM directly. Supports drag, resize, and dynamic widget addition from a gallery panel.</p>
+        <ul>
+          <li>Direct DOM manipulation</li>
+          <li>Drag from widget gallery</li>
+          <li>Save/restore from localStorage</li>
+          <li>Edit / View mode toggle</li>
+        </ul>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-raised-button color="primary" routerLink="/gridstack">Open Gridstack Demo</a>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="lib-card">
+      <mat-card-header>
+        <mat-card-title>angular-gridster2</mat-card-title>
+        <mat-card-subtitle>v21.0.1</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>A pure Angular implementation using Angular's component model. Fully reactive, uses Angular CDK for gallery drag-and-drop.</p>
+        <ul>
+          <li>Pure Angular components</li>
+          <li>CDK-powered gallery drag</li>
+          <li>Save/restore from localStorage</li>
+          <li>Edit / View mode toggle</li>
+        </ul>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-raised-button color="accent" routerLink="/gridster">Open Gridster Demo</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="comparison-section">
+    <h2>Feature Comparison</h2>
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Gridstack.js</th>
+          <th>angular-gridster2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Angular Integration</td><td>Manual (DOM)</td><td>Native</td></tr>
+        <tr><td>Drag &amp; Drop</td><td>✅ Built-in</td><td>✅ Built-in</td></tr>
+        <tr><td>Resize</td><td>✅ Built-in</td><td>✅ Built-in</td></tr>
+        <tr><td>External Gallery Drag</td><td>✅ setupDragIn</td><td>✅ CDK DragDrop</td></tr>
+        <tr><td>Collision Detection</td><td>✅</td><td>✅</td></tr>
+        <tr><td>Multi-column</td><td>✅</td><td>✅</td></tr>
+        <tr><td>Bundle Size</td><td>~50kb</td><td>~30kb</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
